@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import * as actions from './actions.ts';
+import * as actions from './actions';
+import * as thunks from './thunks';
 import userSlice from './slices/userSlice.ts';
 
 export const store = configureStore({
@@ -10,7 +11,8 @@ export const store = configureStore({
 
 export const actionCreators = {
   ...userSlice.actions,
-  ...actions
+  ...actions,
+  ...thunks
 };
 
 //https://react-redux.js.org/using-react-redux/usage-with-typescript#define-root-state-and-dispatch-types
