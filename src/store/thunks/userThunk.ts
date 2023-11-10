@@ -5,6 +5,7 @@ import { User } from '../../models';
 export const getUsers = createAsyncThunk(
   'users/get',
   async () => {
+    await new Promise(r => setTimeout(r, 3000));
     const response = await jsonServer.get<User[]>('/users');
     return response.data;
   }

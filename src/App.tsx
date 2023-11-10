@@ -10,6 +10,7 @@ function App() {
 
   const [addUserThunk, loading, error] = useThunk(addUser);
 
+
   return (
     <div className="container mx-auto">
       <Button
@@ -20,7 +21,7 @@ function App() {
         }}
       >Add User</Button>
       {error?.message}
-      <UserList />
+      <UserList/>
     </div>
   )
 }
