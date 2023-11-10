@@ -5,7 +5,7 @@ import { User } from '../../models';
 export const getUsers = createAsyncThunk(
   'users/get',
   async () => {
-    const response = await jsonServer.get<User[]>('/');
+    const response = await jsonServer.get<User[]>('/users');
     return response.data;
   }
 );
@@ -13,7 +13,9 @@ export const getUsers = createAsyncThunk(
 export const addUser = createAsyncThunk(
   'users/add',
   async (user: Omit<User, 'id'>) => {
-    const response = await jsonServer.post<User>('/', user);
+    await new Promise(r => setTimeout(r, 3000));
+    // throw new Error('JMPC');
+    const response = await jsonServer.post<User>('/users', user);
     return response.data;
   }
 );
@@ -21,7 +23,7 @@ export const addUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   'users/delete',
   async (user: User) => {
-    await jsonServer.delete(`/${user.id}`);
+    await jsonServer.delete(`/users/${user.id}`);
     return user;
   }
 );

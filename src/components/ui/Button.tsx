@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { twMerge } from 'tailwind-merge';
+import { GoSync } from 'react-icons/go';
 
 type classicBtnProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
 type ButtonProps = classicBtnProps & {
   rounded?: boolean;
   outline?: boolean;
+  loading?: boolean;
 }
   & (
     { primary?: true; secondary?: never; success?: never; warning?: never; danger?: never; }
@@ -19,9 +21,10 @@ type ButtonProps = classicBtnProps & {
 
 const Button: React.FC<ButtonProps> = (
   { children, primary, secondary, success, warning, danger,
-    rounded, outline, className, ...rest }) => {
+    rounded, outline, loading, disabled, className, ...rest }) => {
 
   const classes = twMerge(classNames('flex items-center px-3 py-1.5 border [&>svg]:mr-1', className, {
+    'opacity-80': loading,
     'border-blue-600 bg-blue-500 text-white': primary,
     'border-gray-900 bg-gray-800 text-white': secondary,
     'border-green-600 bg-green-500 text-white': success,
@@ -40,7 +43,9 @@ const Button: React.FC<ButtonProps> = (
     <button
       className={classes}
       {...rest}
+      disabled={loading || disabled}
     >
+      {loading && <GoSync className="animate-spin" />}
       {children}
     </button>
   );
@@ -52,9 +57,11 @@ type Props = {
   success?: boolean;
   warning?: boolean;
   danger?: boolean
+  loading?: boolean
 }
 
 Button.propTypes = {
+  loading: PropTypes.bool,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
   success: PropTypes.bool,

@@ -24,6 +24,7 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
+    '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-unsafe-argument': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
@@ -36,7 +37,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/consistent-type-definitions': ['type' | 'interface'],
-    '@typescript-eslint/prefer-nullish-coalescing': 'error',
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
