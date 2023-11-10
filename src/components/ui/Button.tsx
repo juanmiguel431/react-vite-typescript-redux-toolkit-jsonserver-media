@@ -10,6 +10,7 @@ type ButtonProps = classicBtnProps & {
   rounded?: boolean;
   outline?: boolean;
   loading?: boolean;
+  icon?: React.ReactNode;
 }
   & (
     { primary?: true; secondary?: never; success?: never; warning?: never; danger?: never; }
@@ -21,7 +22,7 @@ type ButtonProps = classicBtnProps & {
 
 const Button: React.FC<ButtonProps> = (
   { children, primary, secondary, success, warning, danger,
-    rounded, outline, loading, disabled, className, ...rest }) => {
+    rounded, outline, loading, icon, disabled, className, ...rest }) => {
 
   const classes = twMerge(classNames('flex items-center px-3 py-1.5 border [&>svg]:mr-1', className, {
     'opacity-80': loading,
@@ -45,7 +46,7 @@ const Button: React.FC<ButtonProps> = (
       {...rest}
       disabled={loading || disabled}
     >
-      {loading && <GoSync className="animate-spin" />}
+      {loading ? <GoSync className="animate-spin" /> : icon}
       {children}
     </button>
   );
