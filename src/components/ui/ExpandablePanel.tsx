@@ -14,7 +14,7 @@ const ExpandablePanel: React.FC<ExpandablePanelProps> = ({ children, header }) =
         <div className="flex flex-row items-center justify-between">
           {header}
         </div>
-        <div onClick={() => setExpanded(prev => !prev)}>
+        <div onClick={() => setExpanded(prev => !prev)} className="cursor-pointer" >
           {expanded ? <GoChevronDown/> : <GoChevronLeft/>}
         </div>
       </div>
