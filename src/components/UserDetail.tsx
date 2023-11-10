@@ -16,15 +16,18 @@ const UserDetail: React.FC<UserProps> = ({ user }) => {
   return (
     <div className="mb-2 border rounded">
       <div className="flex p-2 justify-between items-center">
-        {user.name}
-        <Button
-          danger
-          icon={<GoTrash/>}
-          loading={loading}
-          onClick={() => {
-            deleteUserThunk(user);
-          }}
-        />
+        <div className="flex flex-row items-center justify-between">
+          <Button
+            danger
+            className="mr-3"
+            icon={<GoTrash/>}
+            loading={loading}
+            onClick={() => {
+              deleteUserThunk(user);
+            }}
+          />
+          {user.name}
+        </div>
       </div>
     </div>
   );
