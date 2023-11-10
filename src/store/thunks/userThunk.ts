@@ -24,6 +24,7 @@ export const addUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   'users/delete',
   async (user: User) => {
+    await new Promise(r => setTimeout(r, 3000));
     await jsonServer.delete(`/users/${user.id}`);
     return user;
   }
