@@ -5,6 +5,7 @@ import Button from './ui/Button.tsx';
 import { useActions } from '../hooks/store/useActions.ts';
 import useThunk from '../hooks/useThunk.ts';
 import ExpandablePanel from './ui/ExpandablePanel.tsx';
+import AlbumList from './AlbumList.tsx';
 
 type UserProps = {
   user: User;
@@ -31,7 +32,7 @@ const UserDetail: React.FC<UserProps> = ({ user }) => {
 
   return (
     <ExpandablePanel header={header}>
-      Hello
+      <AlbumList user={user}/>
     </ExpandablePanel>
   );
 };
