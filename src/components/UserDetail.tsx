@@ -1,4 +1,5 @@
 import React from 'react';
+import { GoTrash } from 'react-icons/go'
 import { User } from '../models';
 import Button from './ui/Button.tsx';
 import { useActions } from '../hooks/store/useActions.ts';
@@ -18,11 +19,12 @@ const UserDetail: React.FC<UserProps> = ({ user }) => {
         {user.name}
         <Button
           danger
+          icon={<GoTrash/>}
           loading={loading}
           onClick={() => {
             deleteUserThunk(user);
           }}
-        >Delete</Button>
+        />
       </div>
     </div>
   );
