@@ -1,6 +1,7 @@
 import { useAppSelector } from '../hooks/store/useAppSelector.ts';
 import { useActions } from '../hooks/store/useActions.ts';
 import { useEffect } from 'react';
+import UserDetail from './UserDetail.tsx';
 
 const UserList = () => {
 
@@ -14,8 +15,8 @@ const UserList = () => {
 
   return (
     <div>
-      {users.map(u => (
-        <div key={u.id}>{u.name}</div>
+      {users.map(user => (
+        <UserDetail key={user.id} user={user}/>
       ))}
     </div>
   );
