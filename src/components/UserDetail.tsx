@@ -12,14 +12,16 @@ const UserDetail: React.FC<UserProps> = ({ user }) => {
   const { deleteUser } = useActions();
 
   return (
-    <div>
-      {user.name}
-      <Button
-        danger
-        onClick={() => {
-          deleteUser(user);
-        }}
-      >Delete</Button>
+    <div className="mb-2 border rounded">
+      <div className="flex p-2 justify-between items-center">
+        {user.name}
+        <Button
+          danger
+          onClick={() => {
+            deleteUser(user);
+          }}
+        >Delete</Button>
+      </div>
     </div>
   );
 };
