@@ -16,8 +16,9 @@ function App() {
       <Button
         primary
         loading={loading}
-        onClick={() => {
-          addUserThunk({ name: faker.person.firstName() });
+        onClick={async () => {
+          const response = await addUserThunk({ name: faker.person.firstName() });
+          console.log(response);
         }}
       >Add User</Button>
       {error?.message}
