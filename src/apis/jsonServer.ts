@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { jsonServerUrl } from '../constants.ts';
 
 const jsonServer = axios.create({
-  baseURL: 'http://localhost:3004'
+  baseURL: jsonServerUrl
 });
 
 export default jsonServer;
