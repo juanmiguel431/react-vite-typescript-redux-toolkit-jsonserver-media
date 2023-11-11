@@ -4,14 +4,18 @@ import * as actions from './actions';
 import * as thunks from './thunks';
 import userSlice from './slices/userSlice.ts';
 import albumsApi from './apis/albumsApi.ts';
+import photosApi from './apis/photosApi.ts';
 
 export const store = configureStore({
   reducer: {
     user: userSlice.reducer,
-    [albumsApi.reducerPath]: albumsApi.reducer
+    [albumsApi.reducerPath]: albumsApi.reducer,
+    [photosApi.reducerPath]: photosApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(albumsApi.middleware)
+    return getDefaultMiddleware()
+      .concat(albumsApi.middleware)
+      .concat(photosApi.middleware)
   }
 });
 

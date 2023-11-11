@@ -4,6 +4,7 @@ import ExpandablePanel from './ui/ExpandablePanel.tsx';
 import Button from './ui/Button.tsx';
 import { GoTrash } from 'react-icons/go';
 import { useDeleteAlbumMutation } from '../store/apis/albumsApi.ts';
+import PhotoList from './PhotoList.tsx';
 
 type AlbumDetailProps = {
   album: Album;
@@ -30,7 +31,7 @@ const AlbumDetail: React.FC<AlbumDetailProps> = ({ album }) => {
 
   return (
     <ExpandablePanel header={header}>
-      <div>Images of the album {album.name}</div>
+      <PhotoList album={album}/>
     </ExpandablePanel>
   );
 };

@@ -9,3 +9,9 @@ export type Album = {
   name: string;
   userId: number;
 }
+
+export type Photo = {
+  id: number;
+  albumId: number;
+  url: string;
+}
