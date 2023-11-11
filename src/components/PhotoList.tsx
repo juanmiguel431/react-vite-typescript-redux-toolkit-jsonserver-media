@@ -33,9 +33,13 @@ const PhotoList: React.FC<PhotoListProps> = ({ album }) => {
           times={4}
           className="h-10 w-full"
         />
-      ) : data?.map(a => (
-        <PhotoDetail key={a.id} photo={a}/>
-      ))}
+      ) : (
+        <div className="mx-8 flex flex-row flex-wrap justify-center">
+          {data?.map(a => (
+            <PhotoDetail key={a.id} photo={a}/>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
